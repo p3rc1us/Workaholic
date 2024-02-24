@@ -1,4 +1,8 @@
 <p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
+    <%= link_to "Profile", edit_user_registration_path %>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+<% end%>
 
 <%= render @category %>
 
@@ -14,6 +18,8 @@
   <p>
     <strong>Tasks:</strong>
     <%= task.name %>
+    <%= link_to "Edit this task", edit_category_task_path(@category, task) %>
+    <%= button_to "Delete this task", [@category, task], method: :delete %>
   </p>
 <% end %>
 
@@ -27,3 +33,7 @@
     <%= form.submit %>
   </p>
 <% end %>
+
+<div>
+  <%= link_to "Back to categories", categories_path %>
+</div>
