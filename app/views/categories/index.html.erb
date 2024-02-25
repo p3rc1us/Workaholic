@@ -10,10 +10,7 @@
     <% @categories.each do |category| %>
     <% render category%>
     <p>
-        <%= category.name %>
-    </p>
-    <p>
-        <%= link_to "Show this category", category%>
+        <%= link_to "#{category.name}", category%>
     </p>
     <% end %>
 </div>
