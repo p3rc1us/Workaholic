@@ -14,16 +14,16 @@
   <%= button_to "Destroy this category", @category, method: :delete %>
 </div>
 
-<h2>Tasks</h2>
-<% @category.tasks.each do |task| %>
-  <p>
-    <strong>Tasks:</strong>
-  </p>
+<h2>Tasks:</h2>
+<% @category.tasks.order(created_at: :desc).each do |task| %>
 
   <p>
   <%= form_for [@category, task] do |f| %>
   <span id="completed" style="<%= 'text-decoration: line-through;' if task.completed %>">
+  <span id="today" style="<%= task.created_at.to_date == Date.today ? 'background-color: pink;' : 'background-color: none;' %>">
+
   <%= task.name %>
+  </span>
   </span>
   <%= f.check_box :completed, class: "put tw class here", onchange: 'document.getElementById("completed").style.textDecoration = this.checked ? "line-through" : "none"; this.form.submit()' %>
   <% end %>
