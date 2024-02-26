@@ -22,8 +22,10 @@
 
   <p>
   <%= form_for [@category, task] do |f| %>
-    <%= task.name %>
-    <%= f.check_box :completed, class: "put tw class here", data: { custom_data: "yes" }, onchange: 'this.form.submit()' %>
+  <span id="completed" style="<%= 'text-decoration: line-through;' if task.completed %>">
+  <%= task.name %>
+  </span>
+  <%= f.check_box :completed, class: "put tw class here", onchange: 'document.getElementById("completed").style.textDecoration = this.checked ? "line-through" : "none"; this.form.submit()' %>
   <% end %>
   </p>
 
