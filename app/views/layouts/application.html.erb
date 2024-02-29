@@ -12,11 +12,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body  class="bg-cover bg-center" style="background-image: url(https://play.tailwindcss.com/img/beams.jpg)">
-  <div class="absolute inset-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:36px_36px]">
-    <main class="flex flex-col justify-center items-center mt-6">
-      <%= yield %>
+  <body>
+    <main class="bg-cover bg-center z-0 w-full h-full" style="background-image: url(https://play.tailwindcss.com/img/beams.jpg)">
+      <div class="absolute inset-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:36px_36px] z-0">
+        <%= yield %>
+      </div>
     </main>
-  </div>
   </body>
 </html>

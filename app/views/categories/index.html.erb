@@ -1,20 +1,29 @@
-<div class="flex flex-col justify-center items-center mt-48 bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
 <p style="color: green"><%= notice %></p>
-<h1>Categories</h1>
-
 <% if user_signed_in? %>
-    <%= link_to "Profile", edit_user_registration_path %>
-    <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "absolute right-3 top-3 text-white bg-true-orange hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" %>
 <% end%>
 
-<div id="categories">
-    <% @categories.each do |category| %>
-    <% render category%>
-    <p>
-        <%= link_to "#{category.name}", category%>
-    </p>
-    <% end %>
+<div class="flex justify-center h-full">
+<div class="flex flex-row rounded-xl mt-20 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-11/12 h-5/6">
+
+<div class="left pane w-1/4 p-5 bg-true-orange/20 rounded-tl-xl rounded-bl-xl text-true-orange">
+<% if user_signed_in? %>
+    <%= link_to "Profile", edit_user_registration_path, class: "text-3xl flex justify-center font-normal" %>
+<% end%>
 </div>
 
-<%= link_to "New category", new_category_path%>
+<div class="right pane w-full p-5 overflow-y-auto">
+	<span class="text-2xl text-true-orange">Categories</span>
+
+		<% @categories.each do |category| %>
+		<%# <% render category%>
+		<div class="mt-5 flex items-center pl-10 bg-red-500 rounded-xl h-1/6">
+			<%= link_to "#{category.name}", category%>
+		</div>
+		<% end %>
+	<div class="flex justify-center mt-10">
+	<%= link_to "New category", new_category_path, class: "bg-red-500 rounded-xl"%>
+	</div>
+</div>
+
 </div>
