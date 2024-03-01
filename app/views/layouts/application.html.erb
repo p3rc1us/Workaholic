@@ -7,14 +7,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <main class="bg-cover bg-center z-0 w-full h-full" style="background-image: url(https://play.tailwindcss.com/img/beams.jpg)">
-      <div class="absolute inset-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:36px_36px] z-0 overflow-y-hidden">
+    <main class="absolute bg-cover bg-center w-full h-full" style="background-image: url(https://play.tailwindcss.com/img/beams.jpg)">
+    <div class="absolute inset-0 h-full w-full bg-transparent bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:36px_36px] z-0 overflow-y-hidden">
         <%= yield %>
       </div>
     </main>

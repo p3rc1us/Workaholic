@@ -1,51 +1,88 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green" class="fixed left-1/2"><%= notice %></p>
+
 
 <% if user_signed_in? %>
-    <%= link_to "Profile", edit_user_registration_path %>
-    <%= button_to "Logout", destroy_user_session_path, method: :delete %>
-<% end%>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "fixed right-3 top-3 text-white bg-true-orange hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" %>
+    <% end%>
+<%= link_to "Back to categories", categories_path %>
 
-<%= render @category %>
+<div class="flex justify-center h-full">
+  <div class="flex flex-row rounded-xl mt-12 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-11/12 h-5/6">
 
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
+    <div class="left pane w-1/4 p-5 bg-true-orange/20 rounded-tl-xl rounded-bl-xl text-true-orange">
+      <div>
+        <% if user_signed_in? %>
+        <%= link_to "Profile", edit_user_registration_path %>
+        <% end%>
+      </div>
+      
+      <div class="categories shortcut overflow-y-auto flex flex-col justify-center">
+        <span class="flex justify-center mt-10 mb-3">
+        Categories
+        </span>
+			<% @categories.each do |category| %>
+				<%= link_to category, class: "mt-3 flex items-center pl-10 rounded-xl h-1/6 text-true-orange transition ease-in-out delay-150 hover:-translate-y-1 duration-300" do %>
+					> <%= category.name %>
+				<% end %>
+			<% end %>
+      </div>
+		</div>
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
-</div>
+  <div class="right pane flex flex-col w-full p-5 overflow-y-auto font-light">
+    
+    <%= render @category %>
+    <div class="mb-10 font-extralight italic text-xs">
+      <%= link_to "Edit Category", edit_category_path(@category) %>
 
-<h2>Tasks:</h2>
-<% @category.tasks.order(created_at: :desc).each do |task| %>
+      <%= link_to "Delete Category", @category, method: :delete, class: "ml-2" %>
+    </div>
 
-  <p>
-  <%= form_for [@category, task] do |f| %>
-  <span id="completed" style="<%= 'text-decoration: line-through;' if task.completed %>">
-  <span id="today" style="<%= task.created_at.to_date == Date.today ? 'background-color: pink;' : 'background-color: none;' %>">
+  
+  <table class="w-full text-sm text-left rtl:text-right">
+  <thead>
+    <tr>
+      <th scope="col" class="px-6 py-5">Task</th>
+      <th scope="col" class="px-6 py-5"></th>
+      <th scope="col" class="px-6 py-5">Edit</th>
+      <th scope="col" class="px-6 py-5">Delete</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @category.tasks.order(created_at: :desc).each do |task| %>
+    <tr class="<%= task.created_at.to_date == Date.today ? 'bg-true-orange/30' : 'bg-inherit' %>">
+      <td class="px-6 py-4">
+        <%= form_for [@category, task] do |f| %>
+        <section id="completed" style="<%= 'text-decoration: line-through;' if task.completed %>">
+        <span id="today">
+        <%= task.name %>
+        </span>
+        </section>
+      </td>
+      <td class="px-6 py-4">
+        <%= f.check_box :completed, class: "w-4 h-4 text-orange-300 bg-gray-100 border-gray-300 rounded focus:ring-orange-500", onchange: 'document.getElementById("completed").style.textDecoration = this.checked ? "line-through" : "none"; this.form.submit()' %>
+        <% end %>
+      </td>
+      <td class="px-6 py-4"><%= link_to "Edit task", edit_category_task_path(@category, task) %></td>
+      <td class="px-6 py-4"><%= button_to "Delete task", [@category, task], method: :delete %></td>
+      <% end %>
+    </tr>
+  </tbody>
+  </table>
 
-  <%= task.name %>
-  </span>
-  </span>
-  <%= f.check_box :completed, class: "put tw class here", onchange: 'document.getElementById("completed").style.textDecoration = this.checked ? "line-through" : "none"; this.form.submit()' %>
-  <% end %>
-  </p>
 
-  <p>
-    <%= link_to "Edit this task", edit_category_task_path(@category, task) %>
-    <%= button_to "Delete this task", [@category, task], method: :delete %>
-  </p>
-<% end %>
 
-<h2>Add a Task:</h2>
-<%= form_with model: [ @category, @category.tasks.build ] do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_area :name %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+  
 
-<div>
-  <%= link_to "Back to categories", categories_path %>
+
+      <div class="flex justify-center mt-5">
+        <%= link_to new_category_task_path(@category) do %>
+			<img class="w-10 h-10 mr-2 hover:rotate-90 duration-500" src="<%= asset_path('logo-base-256x256.png') %>" alt="logo">
+		<% end %>
+      </div>
+
+    </div>
+    
+  </div>
+
 </div>

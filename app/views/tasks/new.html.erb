@@ -1,2 +1,19 @@
 <h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+
+<div class="flex mt-10">
+      <h2>Add a Task:</h2>
+      <%= form_with model: [ @category, @category.tasks.build ] do |form| %>
+        <p>
+          <%= form.label :name %><br>
+          <%= form.text_area :name %>
+        </p>
+        <p>
+          <%= form.submit %>
+        </p>
+      <% end %>
+
+      <div>
+        <%= link_to "Back to categories", categories_path %>
+      </div>
+
+    </div>

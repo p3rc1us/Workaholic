@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @categories = current_user.categories
   end
 
   def new

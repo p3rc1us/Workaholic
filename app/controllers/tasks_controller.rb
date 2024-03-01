@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: %i[ show edit update destroy]
+  before_action :set_category, only: %i[ new edit create update destroy]
 
   def index
     @tasks = Task.all
@@ -14,12 +15,10 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:category_id])
     @task = @category.tasks.find(params[:id])
   end
 
   def create
-    @category = Category.find(params[:category_id])
     @task = @category.tasks.create(task_params)
     redirect_to category_path(@category)
   end
@@ -50,6 +49,10 @@ class TasksController < ApplicationController
 
   def set_task
     @task =  Task.find(params[:id])
+  end
+
+  def set_category
+    @category = Category.find(params[:category_id])
   end
 
   def task_params
