@@ -4,10 +4,12 @@
 <% if user_signed_in? %>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "fixed right-3 top-3 text-white bg-true-orange hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" %>
     <% end%>
-<%= link_to "Back to categories", categories_path %>
+<%= link_to categories_path do %>
+<i class="fixed left-3 top-3 fa-solid fa-arrow-left bg-true-orange text-white text-2xl p-3 rounded-full"></i>
+<% end %>
 
 <div class="flex justify-center h-full">
-  <div class="flex flex-row rounded-xl mt-12 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-11/12 h-5/6">
+  <div class="flex flex-row rounded-xl mt-20 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-11/12 h-5/6">
 
     <div class="left pane w-1/4 p-5 bg-true-orange/20 rounded-tl-xl rounded-bl-xl text-true-orange">
       <div>
@@ -31,10 +33,10 @@
   <div class="right pane flex flex-col w-full p-5 overflow-y-auto font-light">
     
     <%= render @category %>
-    <div class="mb-10 font-extralight italic text-xs">
+    <div class="flex flex-row mb-10 font-extralight text-xs">
       <%= link_to "Edit Category", edit_category_path(@category) %>
 
-      <%= link_to "Delete Category", @category, method: :delete, class: "ml-2" %>
+      <%= button_to "Delete Category", @category, method: :delete,  data: { confirm: 'Are you sure?' }, class: "ml-2" %>
     </div>
 
   
@@ -63,7 +65,7 @@
         <%= f.check_box :completed, class: "w-4 h-4 text-orange-300 bg-gray-100 border-gray-300 rounded focus:ring-orange-500", onchange: 'document.getElementById("completed").style.textDecoration = this.checked ? "line-through" : "none"; this.form.submit()' %>
         <% end %>
       </td>
-      <td class="px-6 py-4"><%= link_to "Edit task", edit_category_task_path(@category, task) %></td>
+      <td class="px-6 py-4"><%= link_to edit_category_task_path(@category, task) do %><i class="fa-regular fa-pen-to-square"></i><% end %></td>
       <td class="px-6 py-4"><%= button_to "Delete task", [@category, task], method: :delete %></td>
       <% end %>
     </tr>

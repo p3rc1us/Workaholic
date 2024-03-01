@@ -1,19 +1,24 @@
-<h1>Tasks#new</h1>
+<div class="flex justify-center items-center mt-60">
+<div class="w-full shadow-2xl bg-red rounded-lg border md:mt-0 sm:max-w-md xl:p-0 bg-orange-300 border-orange-400">
+  <div class="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-orange-300 border-orange-300">
+    <div style="background-color: #FE8616;" class="p-10 rounded-lg shadow text-white flex flex-col justify-center items-center">
+      <h1 class="flex justify-center text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
+                  New Task
+      </h1>
 
-<div class="flex mt-10">
-      <h2>Add a Task:</h2>
       <%= form_with model: [ @category, @category.tasks.build ] do |form| %>
         <p>
-          <%= form.label :name %><br>
-          <%= form.text_area :name %>
+          <%= form.text_field :name, class: "flex justify-center text-black w-full h-auto rounded-xl mt-8" %>
         </p>
-        <p>
+        <p class="flex justify-center mt-4">
           <%= form.submit %>
         </p>
       <% end %>
 
-      <div>
+      <div class="mt-4">
         <%= link_to "Back to categories", categories_path %>
       </div>
-
-    </div>
+</div>
+</div>
+</div>
+</div>
