@@ -26,7 +26,7 @@ test "update_show_delete_category" do
 
    assert_select "h1", text: "UPDATING A CATEGORY"
 
-   #delete category
+   #delete
 
    delete category_path(categories(:one))
 
