@@ -2,6 +2,8 @@ require "test_helper"
 
 class CreateUserTest < ActionDispatch::IntegrationTest
   test "create_user_account_then_create_category" do
+    #create user
+
     get new_user_registration_path
     assert_response :success
 
@@ -14,6 +16,7 @@ class CreateUserTest < ActionDispatch::IntegrationTest
     }
     assert :redirect
     follow_redirect!
+    #create category
 
     post categories_path, params: {
       category: {
@@ -26,4 +29,6 @@ class CreateUserTest < ActionDispatch::IntegrationTest
 
     assert_select "h1", text: "TEST CATEGORY" #I upcase my category.name
   end
+
+
 end
