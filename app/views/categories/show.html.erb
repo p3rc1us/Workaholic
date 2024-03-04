@@ -19,12 +19,12 @@
       </div>
       
       <div class="categories shortcut overflow-y-auto flex flex-col justify-center">
-        <span class="flex justify-center mt-10 mb-3">
+        <span class="flex justify-center mt-10 mb-3 text-2xl font-semibold">
         Categories
         </span>
 			<% @categories.each do |category| %>
-				<%= link_to category, class: "mt-3 flex items-center pl-10 rounded-xl h-1/6 text-true-orange transition ease-in-out delay-150 hover:-translate-y-1 duration-300" do %>
-					> <%= category.name %>
+				<%= link_to category, class: "text-2xl font-extralight mt-3 flex items-center pl-10 rounded-xl h-1/6 text-true-orange transition ease-in-out delay-150 hover:-translate-y-1 duration-300" do %>
+					<%= category.name %>
 				<% end %>
 			<% end %>
       </div>
