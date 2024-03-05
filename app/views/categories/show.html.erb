@@ -1,4 +1,4 @@
-<p style="color: green" class="fixed left-1/2"><%= notice %></p>
+
 
 
 <% if user_signed_in? %>
@@ -9,6 +9,7 @@
 <% end %>
 
 <div class="flex justify-center h-full">
+  <p class="absolute text-true-orange"><%= notice %></p>
   <div class="flex flex-row rounded-xl mt-20 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-11/12 h-5/6">
 
     <div class="left pane w-1/4 p-5 bg-true-orange/20 rounded-tl-xl rounded-bl-xl text-true-orange">
