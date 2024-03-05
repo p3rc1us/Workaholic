@@ -32,7 +32,7 @@
 
   <div class="right pane flex flex-col w-full p-5 overflow-y-auto font-light">
     <div class="flex flex-row justify-between items-center">
-    <%= render @category %><span class="font-extralight italic mr-12">Today <span class="font-bold not-italic bg-true-orange/30 text-transparent text-xl">&#9744;</span></span>
+    <%= render @category %><span class="font-extralight italic text-xl mr-12">Today <span class="font-bold not-italic bg-true-orange/30 text-transparent text-xl">&#9744;</span></span>
     </div>
     <div class="flex flex-row mb-10 font-extralight text-xs">
       <%= link_to "Edit Category", edit_category_path(@category) %>
@@ -66,7 +66,7 @@
         <%= f.check_box :completed, class: "w-4 h-4 text-orange-300 bg-gray-100 border-gray-300 rounded focus:ring-orange-500", onchange: 'document.getElementById("completed").style.textDecoration = this.checked ? "line-through" : "none"; this.form.submit()' %>
         <% end %>
       </td>
-      <td class="px-6 py-4"><%= link_to edit_category_task_path(@category, task) do %><i class="fa-regular fa-pen-to-square"></i><% end %></td>
+      <td class="px-6 py-4"><%= link_to [:edit, @category, task] do %><i class="fa-regular fa-pen-to-square"></i><% end %></td>
       <td class="px-6 py-4"><%= button_to "Delete task", [@category, task], method: :delete %></td>
       <% end %>
     </tr>
