@@ -5,7 +5,7 @@
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "fixed right-3 top-3 text-white bg-true-orange hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" %>
     <% end%>
 <%= link_to categories_path do %>
-<i class="fixed left-3 top-3 fa-solid fa-arrow-left bg-true-orange text-white text-2xl p-3 rounded-full"></i>
+<i class="fixed left-3 top-3 fa-solid fa-arrow-left bg-true-orange text-white text-2xl px-3 py-2.5 rounded-full"></i>
 <% end %>
 
 <div class="flex justify-center h-full">
@@ -19,7 +19,7 @@
       </div>
       
       <div class="categories shortcut overflow-y-auto flex flex-col justify-center">
-        <span class="flex justify-center mt-10 mb-3 text-2xl font-semibold">
+        <span class="flex justify-center mt-10 mb-3 text-2xl font-light">
         Categories
         </span>
 			<% @categories.each do |category| %>
@@ -31,8 +31,9 @@
 		</div>
 
   <div class="right pane flex flex-col w-full p-5 overflow-y-auto font-light">
-    
-    <%= render @category %>
+    <div class="flex flex-row justify-between items-center">
+    <%= render @category %><span class="font-extralight italic mr-12">Today <span class="font-bold not-italic bg-true-orange/30 text-transparent text-xl">&#9744;</span></span>
+    </div>
     <div class="flex flex-row mb-10 font-extralight text-xs">
       <%= link_to "Edit Category", edit_category_path(@category) %>
 
