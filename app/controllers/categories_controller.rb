@@ -5,9 +5,11 @@ class CategoriesController < ApplicationController
   def index
     if user_signed_in?
       @categories = current_user.categories
+      @tasks_for_today = current_user.tasks.where(created_at: Date.current.beginning_of_day..Date.current.end_of_day)
     else
       redirect_to new_user_session_path
     end
+    puts @tasks_for_today.count
   end
 
   def show

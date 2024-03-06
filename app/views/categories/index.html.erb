@@ -10,6 +10,19 @@
 			<% if user_signed_in? %>
 				<%= link_to "Profile", edit_user_registration_path, class: "text-3xl flex justify-center font-normal" %>
 			<% end%>
+			<span class="flex mt-10 text-xl font-semibold">For Today</span>
+
+			<% if @tasks_for_today.present? %>
+				<ul>
+				<% @tasks_for_today.each do |now| %>
+				<li class="font-light mt-4 mb-4" style="<%= 'text-decoration: line-through;' if now.completed %>">
+					<%= now.name %> in <%= now.category.name %>
+				</li>
+				<% end %>
+				</ul>
+			<% else %>
+  				<p>No tasks for today! Have a rest</p>
+			<% end %>
 		</div>
 
 	<div class="right pane w-full p-5 overflow-y-auto font-light">

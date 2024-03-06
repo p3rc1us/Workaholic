@@ -54,7 +54,7 @@
   
   <tbody>
     <% @category.tasks.order(created_at: :desc).each do |task| %>
-    <tr class="<%= task.created_at.to_date == Date.today ? 'bg-true-orange/30' : 'bg-inherit' %>">
+    <tr class="<%= task.created_at.to_date == Date.current ? 'bg-true-orange/30' : 'bg-inherit' %>">
       <td class="px-6 py-4">
         <%= form_for [@category, task] do |f| %>
         <section id="completed" style="<%= 'text-decoration: line-through;' if task.completed %>">
