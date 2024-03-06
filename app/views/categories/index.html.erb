@@ -14,7 +14,7 @@
 
 			<% if @tasks_for_today.present? %>
 				<ul>
-				<% @tasks_for_today.each do |now| %>
+				<% @tasks_for_today.order(created_at: :desc).each do |now| %>
 				<li class="font-light mt-4 mb-4" style="<%= 'text-decoration: line-through;' if now.completed %>">
 					<%= now.name %> in <%= now.category.name %>
 				</li>
