@@ -1,33 +1,33 @@
 <div class="flex justify-center items-center mt-60">
-<div class="w-full shadow-2xl bg-red rounded-lg border md:mt-0 sm:max-w-md xl:p-0 bg-orange-300 border-orange-400">
-  <div class="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-orange-300 border-orange-300">
-    <div style="background-color: #FE8616;" class="p-10 rounded-lg shadow text-white flex flex-col justify-center items-center">
-      <h1 class="flex justify-center text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
-                  New Category
-      </h1>
+  <div class="w-full shadow-2xl bg-red rounded-lg border md:mt-0 sm:max-w-md xl:p-0 bg-orange-300 border-orange-400">
+    <div class="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-orange-300 border-orange-300">
+      <div style="background-color: #FE8616;" class="p-10 rounded-lg shadow text-white flex flex-col justify-center items-center">
+        <h1 class="flex justify-center text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
+                    New Category
+        </h1>
 
-      <%= form_with(model: category) do |form| %>
-      <% if category.errors.any? %>
-      <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+        <%= form_with(model: category) do |form| %>
+        <% if category.errors.any? %>
+        <div style="color: red">
+        <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <ul>
+          <% category.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+        </div>
         <% end %>
-      </ul>
-      </div>
-      <% end %>
 
-      <div>
-        <%= form.text_field :name, class: "flex justify-center text-black w-full h-auto rounded-xl mt-8" %>
-      </div>
+        <div>
+          <%= form.text_field :name, class: "flex justify-center text-black w-full h-auto rounded-xl mt-8" %>
+        </div>
 
-      <p class="flex justify-center mt-4">
-        <%= form.submit %>
-      </p>
-      <% end %>
-</div>
-</div>
-</div>
+        <p class="flex justify-center mt-4">
+          <%= form.submit %>
+        </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
