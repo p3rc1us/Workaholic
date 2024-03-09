@@ -1,17 +1,58 @@
-Welcome to Workaholic
+<h1 align="center" id="title">Workaholic</h1>
 
-User Story #1: As a User, I want to create a category that can be used to organize my tasks  
--User Story #2: As a User, I want to edit a category to update the category's details  
--User Story #3: As A User, I want to view a category to show the category's details  
--User Story #4: As a User, I want to create a task for a specific category so that I can organize tasks quicker  
--User Story #5: As a User, I want to edit a task to update task's details  
--User Story #6: As a User, I want to view a task to show task's details  
--User Story #7: As a User, I want to delete a task to lessen my unnecessary daily tasks  
--User Story #8: As a User, I want to view my tasks for today for me to remind what are my priorities for today 
--User Story #9: As a User, I want to create my account so that I can have my own credentials  
--User Story #10: As a User, I want to login my account so that I can access my account and link my own tasks.
--User Story #11: As a user, I want to `delete a category` to better organize my tasks
--User Story #12:  As a user, I want to `mark a task as completed` so that I can get that dopamine hit!
+<p id="description">Keeping up with your tasks in this busy world across multiple desktops is cumbersome and isn't free now you can with Workaholic!</p>
 
+  
+  
+<h2>🧐 Features</h2>
 
+Here're some of the project's best features:
 
+*   HYPER FOCUS - You can focus more on today's tasks only. Like Jesus said "Don't Worry about tomorrow for tomorrow will worry about itself".
+*   EASY SIGN UP - No credit card or Gcash needed!
+*   DOPAMINE RUSH - You can keep track of ALL your ACCOMPLISHED Tasks so that your boss will be proud!
+*   SECURED LEGACY - Workaholic uses Devise for user authentication even your great grand kids can still have access of your great accomplishments!
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Clone my repo</p>
+
+```
+git clone https://github.com/p3rc1us/work
+```
+
+<p>2. Navigate to Work</p>
+
+```
+cd work
+```
+
+<p>3. Install dependencies</p>
+
+```
+bundle install
+```
+
+<p>4. Start 'em engines!</p>
+
+```
+bin/rails s
+```
+
+<h2>🍰 Contribution Guidelines:</h2>
+
+We welcome contributions! If you'd like to contribute to Workaholic follow these steps: 1. Fork the repository. 2. Create a new branch: \`git checkout -b feature/my-awesome-feature\`. 3. Make your changes and commit them: \`git commit -m 'Add my awesome feature'\`. 4. Push to the branch: \`git push origin feature/my-awesome-feature\`. 5. Create a pull request. Please adhere to our code of conduct and keep the code clean and well-documented.
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   Ruby on Rails - Devise (for authentication)
+*   PostgreSQL (database)
+*   Tailwind CSS (for styling)
+
+<h2>💖Like my work?</h2>
+
+You don't need to buy me any coffee just hire me! -kervy
