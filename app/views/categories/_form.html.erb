@@ -27,6 +27,11 @@
           <%= form.submit %>
         </p>
         <% end %>
+
+        <div class="w-full mt-4 flex justify-between">
+          <%= link_to "Show this category", @category %>
+          <%= link_to "Back to categories", categories_path %>
+        </div>
       </div>
     </div>
   </div>
