@@ -22,7 +22,7 @@ class TasksController < ApplicationController
     @task = @category.tasks.build(task_params)
 
     if @task.save
-      redirect_to category_path(@category)
+      redirect_to category_path(@category), notice: "#{@task.name} was successfully created."
     else
       render :form
     end
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
   def update
     if edit
       if @task.update(task_params)
-        redirect_to category_path(@category), notice: "Task was successfully updated."
+        redirect_to category_path(@category), notice: "#{@task.name} was successfully updated."
       else
         render :edit, status: :unprocessable_entity
       end
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy!
-      redirect_to category_path(@category), notice: "Task was successfully destroyed."
+      redirect_to category_path(@category), notice: "#{@task.name} was successfully destroyed."
   end
 
   private

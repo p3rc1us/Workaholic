@@ -28,6 +28,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded-xl"  %>
   </div>
 
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image, class: "rounded-xl" %>
+  </div>
+
   <div class="actions flex justify-center mt-6 mb-3">
     <%= f.submit "Sign up" %>
   </div>

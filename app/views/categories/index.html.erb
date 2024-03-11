@@ -5,23 +5,46 @@
 
 	<div class="flex flex-row rounded-xl mt-20 ml-20 mb-20 mr-4 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-1/4">
 
-		<div class="left pane w-full p-5 bg-true-orange/20 rounded-xl text-true-orange">
+		<div class="left pane w-full p-5 bg-true-orange rounded-xl text-white overflow-y-auto">
 			<% if user_signed_in? %>
-				<%= link_to "Profile", edit_user_registration_path, class: "text-3xl flex justify-center font-normal" %>
-			<% end%>
+				<%= link_to edit_user_registration_path, class: "text-3xl flex justify-center font-normal" do %>
+					<% if current_user.image.attached? %>
+						<%= image_tag(current_user.image, style: "display: inline-block; width: 270px; height: 270px; border-radius: 50%; border-solid;
+						border-style: solid;
+						border-width: 4px;
+						border-color: white;
+						object-fit: cover;
+						object-position: top;
+						")%>
+					<% else %>
+						<%= image_tag 'https://sites.cns.utexas.edu/sites/default/files/geometry_lab/files/default_person.jpg?m=1654796730', style: "display: inline-block; width: 270px; height: 270px; border-radius: 50%; border-solid;
+						border-style: solid;
+						border-width: 4px;
+						border-color: white;
+						object-fit: cover;
+						object-position: top;
+						" %>
+						<% end %>
+					<% end %>
+			<% end %>
+			
 			<span class="flex mt-10 text-xl font-semibold">For Today</span>
 
-			<% if @tasks_for_today.present? %>
-				<ul>
-				<% @tasks_for_today.order(created_at: :desc).each do |now| %>
-				<li class="font-light mt-4 mb-4" style="<%= 'text-decoration: line-through;' if now.completed %>">
-					<%= now.name %> in <%= now.category.name %>
-				</li>
-				<% end %>
-				</ul>
-			<% else %>
-  				<p>No tasks for today! Have a rest</p>
-			<% end %>			
+			<div>
+				<% if @tasks_for_today.present? %>
+					<ul class="h-auto">
+					<% @tasks_for_today.order(created_at: :desc).each do |now| %>
+						<%= link_to now.category do%>
+						<li class="font-light mt-4 mb-4" style="<%= 'text-decoration: line-through;' if now.completed %>">
+							<%= now.name %> in <%= now.category.name %>
+						</li>
+						<% end %>
+					<% end %>
+					</ul>
+				<% else %>
+					<p>No tasks for today! Have a rest</p>
+				<% end %>		
+			</div>	
 		</div>
 </div>
 
@@ -33,7 +56,7 @@
 
 				<% @categories.each do |category| %>
 					<%= link_to category do %>
-						<div class="border-solid border-2 border-white ring-1 ring-gray-900/5 mt-5  flex items-center w-11/12 pl-10 bg-true-orange/20 backdrop-blur-xl rounded-xl  h-1/6 text-true-orange transition ease-in-out delay-150 hover:-translate-y-1.5 duration-300">
+						<div class="mt-5  flex items-center w-11/12 pl-10 bg-gradient-to-r from-true-orange backdrop-blur-xl rounded-xl  h-1/6 text-white transition ease-in-out delay-150 hover:-translate-y-1.5 duration-300">
 							<%= category.name.upcase %>
 						</div>
 					<% end %>
