@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-
   before_action :set_category, only: %i[ new edit create update destroy]
   before_action :set_task, only: %i[ show edit update destroy]
 
