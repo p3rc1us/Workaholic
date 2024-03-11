@@ -1,12 +1,11 @@
-<% if user_signed_in? %>
-    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "fixed right-3 top-3 text-white bg-true-orange hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" %>
-    <% end%>
+
 
 <div class="flex justify-center h-full">
 	<p class="absolute text-true-orange"><%= notice %></p>
-	<div class="flex flex-row rounded-xl mt-20 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-11/12 h-5/6">
 
-		<div class="left pane w-1/4 p-5 bg-true-orange/20 rounded-tl-xl rounded-bl-xl text-true-orange">
+	<div class="flex flex-row rounded-xl mt-20 ml-20 mb-20 mr-4 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-1/4">
+
+		<div class="left pane w-full p-5 bg-true-orange/20 rounded-xl text-true-orange">
 			<% if user_signed_in? %>
 				<%= link_to "Profile", edit_user_registration_path, class: "text-3xl flex justify-center font-normal" %>
 			<% end%>
@@ -22,24 +21,29 @@
 				</ul>
 			<% else %>
   				<p>No tasks for today! Have a rest</p>
-			<% end %>
+			<% end %>			
 		</div>
+</div>
 
-	<div class="right pane w-full p-5 overflow-y-auto font-light">
-		<span class="text-2xl text-true-orange">Categories</span>
+<div class="right pane w-full p-5 overflow-y-auto font-light pt-20 pb-20">
+	<% if user_signed_in? %>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "fixed right-3 top-3 text-white bg-true-orange hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" %>
+    <% end%>
+<span class="text-2xl text-true-orange">Categories</span>
 
-			<% @categories.each do |category| %>
-				<%= link_to category do %>
-					<div class="mt-5 flex items-center pl-10 bg-true-orange rounded-xl h-1/6 text-white transition ease-in-out delay-150 hover:-translate-y-1.5 duration-300">
-						<%= category.name.upcase %>
-					</div>
+				<% @categories.each do |category| %>
+					<%= link_to category do %>
+						<div class="border-solid border-2 border-white ring-1 ring-gray-900/5 mt-5  flex items-center w-11/12 pl-10 bg-true-orange/20 backdrop-blur-xl rounded-xl  h-1/6 text-true-orange transition ease-in-out delay-150 hover:-translate-y-1.5 duration-300">
+							<%= category.name.upcase %>
+						</div>
+					<% end %>
 				<% end %>
-			<% end %>
 
-		<div class="flex justify-center mt-10">
-		<%= link_to new_category_path do %>
-			<img class="w-10 h-10 mr-2 hover:rotate-90 duration-500" src="<%= asset_path('logo-base-256x256.png') %>" alt="logo">
-		<% end %>
-		</div>
-	</div>
+			<div class="flex justify-center mt-10">
+			<%= link_to new_category_path do %>
+				<img class="w-10 h-10 mr-2 hover:rotate-90 duration-500" src="<%= asset_path('logo-base-256x256.png') %>" alt="logo">
+			<% end %>
+			</div>
+
+
 </div>

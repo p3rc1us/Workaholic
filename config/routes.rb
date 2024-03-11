@@ -9,45 +9,45 @@ Rails.application.routes.draw do
   # Index (Read All)
   # get '/categories', to: 'categories#index'
 
-  # # New (Create New)
+  # New (Create New)
   # get '/categories/new', to: 'categories#new', as: 'new_category'
 
-  # # Create (Save New)
+  # Create (Save New)
   # post '/categories', to: 'categories#create'
 
-  # # Show (Read One)
+  # Show (Read One)
   # get '/categories/:id', to: 'categories#show', as: 'category'
 
-  # # Edit (Prepare for Update)
+  # Edit (Prepare for Update)
   # get '/categories/:id/edit', to: 'categories#edit'
 
-  # # Update (Save Changes)
+  # Update (Save Changes)
   # patch '/categories/:id', to: 'categories#update'
 
-  # # Destroy (Delete)
+  # Destroy (Delete)
   # delete '/categories/:id', to: 'categories#destroy'
 
-  # # Tasks Routes (CRUD) - Nested within Categories
+  # Tasks Routes (CRUD) - Nested within Categories
 
-  # # Index (Read All for a Category)
+  # Index (Read All for a Category)
   # get '/categories/:category_id/tasks', to: 'tasks#index', as: 'category_tasks'
 
-  # # New (Create New within a Category)
+  # New (Create New within a Category)
   # get '/categories/:category_id/tasks/new', to: 'tasks#new'
 
-  # # Create (Save New within a Category)
+  # Create (Save New within a Category)
   # post '/categories/:category_id/tasks', to: 'tasks#create'
 
-  # # Show (Read One)
+  # Show (Read One)
   # get '/categories/:category_id/tasks/:id', to: 'tasks#show', as: 'task'
 
-  # # Edit (Prepare for Update)
+  # Edit (Prepare for Update)
   # get '/categories/:category_id/tasks/:id/edit', to: 'tasks#edit'
 
-  # # Update (Save Changes)
+  # Update (Save Changes)
   # patch '/categories/:category_id/tasks/:id', to: 'tasks#update'
 
-  # # Destroy (Delete)
+  # Destroy (Delete)
   # delete '/categories/:category_id/tasks/:id', to: 'tasks#destroy'
 
 
