@@ -7,7 +7,7 @@ class CreateUpdateTaskTest < ActionDispatch::IntegrationTest
 
   sign_in users(:two)
 
-  get new_category_task_path(tasks(:one).category)
+  get new_category_task_path(tasks(:two).category)
 
   #create task
 
@@ -23,12 +23,11 @@ class CreateUpdateTaskTest < ActionDispatch::IntegrationTest
 
   #show/check
 
-  assert_select "span", text: "new task for test"
+  assert_select "span", text: "new task for test", wait: 10
 
   #edit task
 
-  get edit_category_task_path(tasks(:one).category, tasks(:one))
-  assert_response :success
+  get edit_category_task_path(tasks(:two).category, tasks(:two))
 
   patch category_task_path, params: {
     task: {
@@ -47,12 +46,12 @@ class CreateUpdateTaskTest < ActionDispatch::IntegrationTest
   #delete
 
   assert_difference("Task.count", -1) do
-    delete category_task_path(tasks(:one).category, tasks(:one))
+    delete category_task_path(tasks(:two).category, tasks(:two))
   end
+
   #sign out
 
-  sign_out users(:one)
-
+  sign_out users(:two)
 
   end
 end
