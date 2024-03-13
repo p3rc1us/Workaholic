@@ -21,11 +21,11 @@ class CreateUpdateTaskTest < ActionDispatch::IntegrationTest
   follow_redirect!
   assert_response :success
 
-  #show/check
+  #proceed to show/check
 
   assert_select "span", text: "new task for test", wait: 10
 
-  #edit task
+  #proceed to edit task
 
   get edit_category_task_path(tasks(:two).category, tasks(:two))
 
@@ -39,17 +39,17 @@ class CreateUpdateTaskTest < ActionDispatch::IntegrationTest
   follow_redirect!
   assert_response :success
 
-  #check
+  #proceed to check
 
   assert_select "span", text: "updated task from test"
 
-  #delete
+  #proceed to delete
 
   assert_difference("Task.count", -1) do
     delete category_task_path(tasks(:two).category, tasks(:two))
   end
 
-  #sign out
+  #proceed to sign out
 
   sign_out users(:two)
 

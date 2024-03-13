@@ -7,7 +7,7 @@ test "update_show_delete_category" do
 
   sign_in users(:one)
 
-  #update
+  #proceed to update
 
   get edit_category_path(categories(:one))
   assert_response :success
@@ -21,20 +21,20 @@ test "update_show_delete_category" do
   follow_redirect!
   assert_response :success
 
-  #  #show
+  #proceed to show
 
   get category_path(categories(:one))
   assert_response :success
 
   assert_select "h1", text: "UPDATING A CATEGORY"
 
-  #  #delete
+  #proceed to delete
 
   assert_difference("Category.count", -1) do
     delete category_path(categories(:one))
   end
 
-  #sign out
+  #proceed to sign out
 
   sign_out users(:one)
 

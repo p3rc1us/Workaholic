@@ -16,7 +16,8 @@ class CreateUserTest < ActionDispatch::IntegrationTest
     }
     assert :redirect
     follow_redirect!
-    #create category
+
+    #proceed to create category
 
     post categories_path, params: {
       category: {

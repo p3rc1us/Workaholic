@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "categories#index"
 
   resources :categories do
-    resources :tasks
+    resources :tasks, except: :index
   end
 
   # Index (Read All)
