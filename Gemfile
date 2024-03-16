@@ -64,16 +64,11 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
+  gem 'factory_bot_rails'
+  gem "nyan-cat-formatter"
 end
 
 gem 'devise'
 
 gem "tailwindcss-rails", "~> 2.3"
-
-group :test do
-  gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
-end
-
-group :test do
-  gem "nyan-cat-formatter"
-end

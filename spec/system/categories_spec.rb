@@ -1,21 +1,22 @@
-require 'rails_helper'
+require "rails_helper"
+require_relative "../support/devise"
 
-RSpec.describe "Categories", type: :system do
-  # let(:user) { create(:user) }
-
+RSpec.describe "User Auth", type: :system do
+  include Devise::Test::IntegrationHelpers
   before do
-    driven_by(:selenium, using: :chrome, screen_size: [1400, 1400])
-    # driven_by :selenium, using: :headless_chrome
-    # driven_by(:rack_test)
+  # by default we are using GUI
+  # driven_by :selenium, using: :headless_chrome
+  # driven_by(:rack_test)
   end
 
-  # before :each do
-  #   sign_in user
-  # end
-
-  it "sign in" do
+  it "from login user" do
     visit root_path
-    expect(page).to have_content('Workaholic')
-  end
+    user = FactoryBot.create(:user)
 
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Sign in"
+
+    expect(page).to have_content("Categories")
+  end
 end
