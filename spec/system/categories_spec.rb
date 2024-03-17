@@ -18,5 +18,6 @@ RSpec.describe "User Auth", type: :system do
     click_on "Sign in"
 
     expect(page).to have_content("Categories")
+    expect(page).to have_content("For Today")
   end
 end
