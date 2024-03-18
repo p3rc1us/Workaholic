@@ -21,9 +21,10 @@ RSpec.describe "User Auth", type: :system do
 
     visit new_category_path
     expect(page).to have_content("New Category")
+    cat = FactoryBot.create(:category)
 
-    fill_in "category_name", with: "New Category from rspec"
+    fill_in "category_name", with: cat.name
     click_on "Create Category"
-    expect(page).to have_content("New Category from rspec")
+    expect(page).to have_content("Category rspec")
   end
 end
