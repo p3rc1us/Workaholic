@@ -4,7 +4,7 @@ FactoryBot.define do
     password { "123456" }
   end
 
-  factory :category do
-    category_name { "New Category from rspec" }
-  end
+  # factory :category do
+  #   category_name { "New Category from rspec" }
+  # end
 end
