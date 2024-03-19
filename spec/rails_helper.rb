@@ -70,4 +70,13 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, :type => :controller
 
   config.include Warden::Test::Helpers
+
+  DatabaseCleaner.strategy = :truncation
+
+  # Run database cleaning transactions around each test
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end

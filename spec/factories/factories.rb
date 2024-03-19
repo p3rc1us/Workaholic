@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    sequence(:email) { |n| "test-#{n.to_s.rjust(3, "0")}@sample.com" }
+    sequence(:email) { |n| "rspec-#{n.to_s.rjust(3, "0")}@email.com" }
     password { "123456" }
   end
 

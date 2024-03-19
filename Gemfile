@@ -65,6 +65,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
+  gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
   gem "nyan-cat-formatter"
 end
