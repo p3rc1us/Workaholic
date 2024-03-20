@@ -5,7 +5,7 @@ RSpec.describe "CRUD category", type: :system do
   include Devise::Test::IntegrationHelpers
   before do
   # by default we are using GUI
-  # driven_by :selenium, using: :headless_chrome
+  driven_by :selenium, using: :headless_chrome
   # driven_by(:rack_test)
   end
 
