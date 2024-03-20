@@ -5,6 +5,7 @@ RSpec.describe Category, type: :model do
   let!(:avion) { Category.new(user: user) }
 
   context 'Validations' do
+
     it 'must be invalid' do
       avion.name = nil
 
@@ -20,4 +21,16 @@ RSpec.describe Category, type: :model do
       expect(avion.errors).to_not be_present
     end
   end
+
+  context 'Associations' do
+
+    it "have many tasks" do
+      expect(Category.reflect_on_association(:tasks).macro).to eq(:has_many)
+    end
+
+    it "belongs to User" do
+      expect(Category.reflect_on_association(:user).macro).to eq(:belongs_to)
+    end
+  end
+
 end
