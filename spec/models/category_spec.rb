@@ -22,15 +22,22 @@ RSpec.describe Category, type: :model do
     end
   end
 
-  context 'Associations' do
-
-    it "have many tasks" do
-      expect(Category.reflect_on_association(:tasks).macro).to eq(:has_many)
-    end
-
-    it "belongs to User" do
-      expect(Category.reflect_on_association(:user).macro).to eq(:belongs_to)
-    end
+  # testing associations using shoulda gem
+  describe Category do
+    it { should belong_to(:user) }
+    it { should have_many(:tasks) }
   end
+
+  # testing associations w/o shoulda gem
+  # context 'Associations' do
+
+  #   it "have many tasks" do
+  #     expect(Category.reflect_on_association(:tasks).macro).to eq(:has_many)
+  #   end
+
+  #   it "belongs to User" do
+  #     expect(Category.reflect_on_association(:user).macro).to eq(:belongs_to)
+  #   end
+  # end
 
 end
