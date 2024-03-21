@@ -22,4 +22,8 @@ RSpec.describe Task, type: :model do
       expect(task.errors).to_not be_present
     end
   end
+
+  describe Task do
+    it { should belong_to(:category) }
+  end
 end
