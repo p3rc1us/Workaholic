@@ -68,6 +68,7 @@ group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
   gem "nyan-cat-formatter"
+  gem 'shoulda', '5.0.0.rc1'
 end
 
 gem 'devise'
