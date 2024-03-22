@@ -25,5 +25,12 @@ RSpec.describe "CRUD task", type: :system do
     click_on "Create Category"
     expect(page).to have_content(cat.name)
 
+    visit new_category_task_path(cat)
+    expect(page).to have_content("New Task")
+    tas = FactoryBot.create(:task, category: cat)
+
+    fill_in "task_name", with: tas.name
+    click_on "Create Task"
+    expect(page).to have_content(tas.name)
   end
 end
