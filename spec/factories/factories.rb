@@ -7,4 +7,8 @@ FactoryBot.define do
   factory :category do
     sequence(:name) { |x| "Category rspec #{x}" }
   end
+
+  factory :task do
+    sequence(:name) { |y| "Task rspec #{y}" }
+  end
 end

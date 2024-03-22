@@ -1,5 +1,4 @@
 require "rails_helper"
-# require_relative "../support/devise"
 
 RSpec.describe "CRUD category", type: :system do
   include Devise::Test::IntegrationHelpers
