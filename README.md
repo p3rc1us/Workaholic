@@ -8,6 +8,7 @@
 
 Here're some of the project's best features:
 
+*   UNIQUE FACES - Workaholic uses Active Storage gem to display your beautiful face in you own profile!
 *   HYPER FOCUS - You can focus more on today's tasks only. Like Jesus said "Don't Worry about tomorrow for tomorrow will worry about itself".
 *   EASY SIGN UP - No credit card or Gcash needed!
 *   DOPAMINE RUSH - You can keep track of ALL your ACCOMPLISHED Tasks so that your boss will be proud!
@@ -52,6 +53,16 @@ Technologies used in the project:
 *   Ruby on Rails - Devise (for authentication)
 *   PostgreSQL (database)
 *   Tailwind CSS (for styling)
+
+<h4>For Testing</h4>
+
+*   gem "capybara"
+*   gem "selenium-webdriver"
+*   gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
+*   gem 'database_cleaner-active_record'
+*   gem 'factory_bot_rails'
+*   gem "nyan-cat-formatter"
+*   gem 'shoulda', '5.0.0.rc1'
 
 <h2>💖Like my work?</h2>
 

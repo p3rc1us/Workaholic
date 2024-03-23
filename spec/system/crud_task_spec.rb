@@ -6,12 +6,17 @@ RSpec.describe "CRUD task", type: :system do
     # by default we are using GUI
     # driven_by :selenium, using: :headless_chrome
     # driven_by(:rack_test)
-    sign_in
   end
 
-  let(:user) { FactoryBot.create(:user) }
+  it "sign in, create category and create task" do
+    visit root_path
+    user = FactoryBot.create(:user)
 
-  it "create category and create task" do
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Sign in"
+    expect(page).to have_content("Categories")
+
     visit new_category_path
     expect(page).to have_content("New Category")
     cat = FactoryBot.create(:category, user: user)
@@ -28,16 +33,4 @@ RSpec.describe "CRUD task", type: :system do
     click_on "Create Task"
     expect(page).to have_content(tas.name)
   end
-
-  private
-
-  def sign_in
-    visit root_path
-
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Sign in"
-    expect(page).to have_content("Categories")
-  end
-
 end
