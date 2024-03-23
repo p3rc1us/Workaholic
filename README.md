@@ -42,7 +42,12 @@ bin/rails s
 
 <h2>🍰 Contribution Guidelines:</h2>
 
-We welcome contributions! If you'd like to contribute to Workaholic follow these steps: 1. Fork the repository. 2. Create a new branch: \`git checkout -b feature/my-awesome-feature\`. 3. Make your changes and commit them: \`git commit -m 'Add my awesome feature'\`. 4. Push to the branch: \`git push origin feature/my-awesome-feature\`. 5. Create a pull request. Please adhere to our code of conduct and keep the code clean and well-documented.
+We welcome contributions! If you'd like to contribute to Workaholic follow these steps: 
+1. Fork the repository. 
+2. Create a new branch: \`git checkout -b feature/my-awesome-feature\`. 
+3. Make your changes and commit them: \`git commit -m 'Add my awesome feature'\`. 
+4. Push to the branch: \`git push origin feature/my-awesome-feature\`. 
+5. Create a pull request. Please adhere to our code of conduct and keep the code clean and well-documented.
 
   
   
