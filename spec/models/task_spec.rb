@@ -23,7 +23,17 @@ RSpec.describe Task, type: :model do
     end
   end
 
+  # testing associations using shoulda gem
   describe Task do
     it { should belong_to(:category) }
   end
+
+  # testing associations w/o shoulda gem
+
+  # context 'Associations' do
+  #   it "belongs to Category" do
+  #     expect(Task.reflect_on_association(:category).macro).to eq(:belongs_to)
+  #   end
+  # end
+
 end
