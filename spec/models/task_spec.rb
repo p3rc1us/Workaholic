@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  let!(:user) { FactoryBot.create(:user) }
-  let!(:category) { Category.new(user: user) }
-  let!(:task) { Task.new(category: category) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:category) { Category.new(user: user) }
+  let(:task) { Task.new(category: category) }
 
   context 'Validations' do
 
