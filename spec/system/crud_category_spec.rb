@@ -7,41 +7,36 @@ RSpec.describe "CRUD category", type: :system do
   let(:cat) { FactoryBot.create(:category, user: user) }
 
   before do
-  # by default we are using GUI, but it won't work if sign_in is abstracted.
-  # this test is meant for headless & rack only.
-  driven_by :selenium, using: :headless_chrome
-  # driven_by(:rack_test)
+  # WARNING! this test is meant for headless & rack only to showcase performance and Nyan cat.
+  # driven_by :selenium, using: :headless_chrome
+  driven_by(:rack_test)
   sign_in
   end
 
   context "CRUD category" do
-
     it "create category" do
       visit new_category_path
       expect(page).to have_content("New Category")
-
       fill_in "category_name", with: cat.name
       click_on "Create Category"
       expect(page).to have_content(cat.name)
     end
 
     it "update category" do
-      visit new_category_path
-      expect(page).to have_content("New Category")
-
-      fill_in "category_name", with: cat.name
-      click_on "Create Category"
-      expect(page).to have_content(cat.name)
-
       visit edit_category_path(cat)
       expect(page).to have_content("New Category")
       fill_in "category_name", with: "#{cat.name} update"
       click_on "Update Category"
       expect(page).to have_content("#{cat.name} update")
     end
+
+    it "delete category" do
+      visit category_path(cat)
+      expect(page).to have_content(cat.name)
+      click_on "Delete Category"
+      expect(page).to_not have_content("cat.name")
+    end
   end
-
-
 
   private
 
