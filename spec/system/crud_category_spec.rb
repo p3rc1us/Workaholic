@@ -7,13 +7,16 @@ RSpec.describe "CRUD category", type: :system do
   let(:cat) { FactoryBot.create(:category, user: user) }
 
   before do
-  # WARNING! this test is meant for headless & rack only to showcase performance and Nyan cat.
-  # driven_by :selenium, using: :headless_chrome
+  # WARNING! this test is meant for headless & rack, to showcase performance and Nyan cat.
+  driven_by :selenium, using: :headless_chrome
   # driven_by(:rack_test)
-  sign_in
   end
 
   context "CRUD category" do
+    before do
+      sign_in
+    end
+
     it "create category" do
       visit new_category_path
       expect(page).to have_content("New Category")
