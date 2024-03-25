@@ -9,7 +9,7 @@ RSpec.describe "CRUD category", type: :system do
   before do
   # WARNING! this test is meant for headless & rack only to showcase performance and Nyan cat.
   # driven_by :selenium, using: :headless_chrome
-  driven_by(:rack_test)
+  # driven_by(:rack_test)
   sign_in
   end
 

@@ -59,7 +59,7 @@
         <%= f.check_box :completed, class: "w-4 h-4 text-orange-300 bg-gray-100 border-gray-300 rounded focus:ring-orange-500", onchange: 'document.getElementById("completed").style.textDecoration = this.checked ? "line-through" : "none"; this.form.submit()' %>
         <% end %>
       </td>
-      <td class="px-6 py-4"><%= link_to [:edit, @category, task] do %><i class="fa-regular fa-pen-to-square"></i><% end %></td>
+      <td class="px-6 py-4"><%= link_to [:edit, @category, task] do %><i class="edit-task fa-regular fa-pen-to-square"></i><% end %></td>
       <td class="px-6 py-4"><%= button_to "Delete task", [@category, task], method: :delete %></td>
       <% end %>
     </tr>
@@ -73,7 +73,7 @@
 
       <div class="flex justify-center mt-5">
         <%= link_to new_category_task_path(@category) do %>
-			<img class="w-10 h-10 mr-2 hover:rotate-90 duration-500" src="<%= asset_path('logo-base-256x256.png') %>" alt="logo">
+			<img class="new-task-button w-10 h-10 mr-2 hover:rotate-90 duration-500" src="<%= asset_path('logo-base-256x256.png') %>" alt="logo">
 		<% end %>
       </div>
 
