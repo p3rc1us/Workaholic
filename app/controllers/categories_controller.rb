@@ -2,7 +2,11 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
 
   def index
-    @categories = current_user.categories
+    @q = current_user.categories.ransack(params[:q])
+    @categories = @q.result(distinct: true)
+
+    # @qt = curren_user.categories.ransack(params[:q])
+    # @tasks = @qt.result(distinct: true)
     @tasks_for_today = current_user.tasks.where(created_at: Date.current.beginning_of_day..Date.current.end_of_day)
   end
 

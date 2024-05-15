@@ -2,7 +2,7 @@
 	<p class="absolute text-true-orange"><%= notice %></p>
 
 	<div class="flex flex-row rounded-xl mt-20 ml-20 mb-20 mr-4 bg-white/5 backdrop-blur-sm p-0.5 shadow-xl ring-1 ring-gray-900/5 w-1/4">
-
+		
 		<div class="left pane w-full p-5 bg-true-orange rounded-xl text-white overflow-y-auto">
 			<% if user_signed_in? %>
 				<%= link_to edit_user_registration_path, class: "text-3xl flex justify-center font-normal" do %>
@@ -47,6 +47,7 @@
 </div>
 
 <div class="right pane w-full p-5 overflow-y-auto font-light pt-20 pb-20">
+	<%= render "search_form"  %>
 	<% if user_signed_in? %>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "fixed right-3 top-3 text-white bg-true-orange hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2" %>
     <% end%>
